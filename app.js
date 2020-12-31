@@ -62,7 +62,7 @@ var mails = new Array();
 
     var nouvelleTaille = mails[req.email.mail] + tabMot.length;
 
-    if((req.email.exp - Math.floor(Date.now() / 1000)) > 0 ){
+    if((Math.floor(Date.now() / 1000)) - req.email.exp > 0 ){
       if(nouvelleTaille <= 800){
         res.status(201).json({
           texte: justify(req.body.texte),
